@@ -48,7 +48,7 @@ skip-external-locking
 {% if mysql_allow_remote_connections is not defined %}
 bind-address    = 127.0.0.1
 {% endif %}
-{% if mysql_allow_remote_connections is defined and not mysql_allow_remote_connections}
+{% if mysql_allow_remote_connections is defined and not mysql_allow_remote_connections %}
 bind-address		= 127.0.0.1
 {% endif %}
 {% if mysql_allow_remote_connections is defined and mysql_allow_remote_connections %}
