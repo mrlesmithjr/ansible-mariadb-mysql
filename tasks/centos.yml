@@ -1,6 +1,4 @@
 ---
-- include: mysql_root_pw.yml
-
 - name: centos | installing mariadb mysql
   yum: name={{ item }} state=present
   with_items:
