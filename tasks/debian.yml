@@ -1,0 +1,16 @@
+---
+- include: mysql_root_pw.yml
+
+- name: debian | installing mariadb mysql
+  apt: name=mariadb-server state=present
+
+- name: debian | configuring mariadb mysql
+  template: src=etc/mysql/my.cnf.j2 dest=/etc/mysql/my.cnf
+  notify: restart mysql
+
+- name: debian | removing original my.cnf
+  file: path=/etc/my.cfg state=absent
+
+- name: debian | configuring debian.cnf
+  template: src=etc/mysql/debian.cnf.j2 dest=/etc/mysql/debian.cnf
+  notify: restart mysql
