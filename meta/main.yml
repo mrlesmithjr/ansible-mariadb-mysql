@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Larry Smith Jr.
-  description: Installs mariadb mysql role
+  description: Installs mariadb mysql role (Configurable and Cacti Monitoring options)
   #company: your company (optional)
   # Some suggested licenses:
   # - BSD (default)

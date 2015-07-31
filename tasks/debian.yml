@@ -14,3 +14,13 @@
 - name: debian | configuring debian.cnf
   template: src=etc/mysql/debian.cnf.j2 dest=/etc/mysql/debian.cnf
   notify: restart mysql
+
+- name: debian | adding cacti db user for monitoring
+  mysql_user: name={{ cacti_db_user }} password={{ cacti_db_password }} host={{ cacti_server }} priv=*.*:SUPER,PROCESS state=present
+  tags: [cacti_monitoring]
+  when: enable_cacti_monitoring  and cacti_server is defined
+
+- name: debian | adding cacti db user for monitoring
+  mysql_user: name={{ cacti_db_user }} password={{ cacti_db_password }} host={{ cacti_server_fqdn }} priv=*.*:SUPER,PROCESS state=present
+  tags: [cacti_monitoring]
+  when: enable_cacti_monitoring  and cacti_server_fqdn is defined
