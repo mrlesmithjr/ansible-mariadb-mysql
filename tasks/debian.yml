@@ -8,12 +8,16 @@
   template: src=etc/mysql/my.cnf.j2 dest=/etc/mysql/my.cnf
   notify: restart mysql
 
-- name: debian | removing original my.cnf
-  file: path=/etc/my.cfg state=absent
+- name: debian | configuring client configuration
+  template: src=etc/mysql/conf.d/client.cnf.j2 dest=/etc/mysql/conf.d/client.cnf owner=root group=root mode=0644
+  notify: reload mysql
 
-- name: debian | configuring debian.cnf
-  template: src=etc/mysql/debian.cnf.j2 dest=/etc/mysql/debian.cnf
-  notify: restart mysql
+#- name: debian | removing original my.cnf
+#  file: path=/etc/my.cfg state=absent
+
+#- name: debian | configuring debian.cnf
+#  template: src=etc/mysql/debian.cnf.j2 dest=/etc/mysql/debian.cnf
+#  notify: restart mysql
 
 - name: debian | adding cacti db user for monitoring
   mysql_user: name={{ cacti_db_user }} password={{ cacti_db_password }} host={{ cacti_server }} priv=*.*:SUPER,PROCESS state=present

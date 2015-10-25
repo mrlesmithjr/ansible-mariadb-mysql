@@ -5,3 +5,5 @@
 
 - include: centos.yml
   when: ansible_os_family == "RedHat"
+
+- include: configure_root_access.yml
