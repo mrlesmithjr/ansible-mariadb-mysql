@@ -5,7 +5,7 @@
     state: present
   with_items:
     - python-mysqldb
-    
+
 - include: mysql_root_pw.yml
 
 - name: debian | installing mariadb mysql
@@ -40,7 +40,7 @@
     name: "{{ cacti_db_user }}"
     password: "{{ cacti_db_password }}"
     host: "{{ cacti_server }}"
-    priv: *.*:SUPER,PROCESS
+    priv: "*.*:SUPER,PROCESS"
     state: present
   tags:
     - cacti_monitoring
@@ -51,7 +51,7 @@
     name: "{{ cacti_db_user }}"
     password: "{{ cacti_db_password }}"
     host: "{{ cacti_server_fqdn }}"
-    priv: *.*:SUPER,PROCESS
+    priv: "*.*:SUPER,PROCESS"
     state: present
   tags:
     - cacti_monitoring
