@@ -1,9 +1,14 @@
 ---
 - name: centos | installing mariadb mysql
-  yum: name={{ item }} state=present
+  yum:
+    name: "{{ item }}"
+    state: present
   with_items:
     - mariadb-server
     - mariadb
 
 - name: centos | ensuring mariadb mysql is enabled on boot and started
-  service: name=mariadb state=started enabled=yes
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
