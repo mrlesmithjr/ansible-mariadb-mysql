@@ -7,7 +7,7 @@
 # you're doing.
 Vagrant.configure(2) do |config|
   config.vm.define "mariadb" do |mariadb|
-    mariadb.vm.box = "ubuntu/trusty64"
+    mariadb.vm.box = "mrlesmithjr/trusty64"
     mariadb.vm.hostname = "mariadb"
 
     mariadb.vm.network :private_network, ip: "192.168.202.201"
