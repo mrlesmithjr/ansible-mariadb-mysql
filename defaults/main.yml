@@ -9,6 +9,8 @@ enable_cacti_monitoring: false  #defines if cacti monitoring should be configure
 mariadb_debian_repo: 'deb http://ftp.osuosl.org/pub/mariadb/repo/{{ mariadb_version }}/{{ ansible_distribution|lower }} {{ ansible_distribution_release|lower }} main'
 mariadb_debian_repo_key: '0xcbcb082a1bb943db'
 mariadb_debian_repo_keyserver: 'keyserver.ubuntu.com'
+mariadb_redhat_repo: 'http://yum.mariadb.org/{{ mariadb_version }}/{{ ansible_distribution|lower }}{{ ansible_distribution_major_version|int}}-amd64'
+mariadb_redhat_repo_key: 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB'
 mariadb_version: 10.0
 mysql_allow_remote_connections: false  #defines if mysql should listen on loopback (default) or allow remove connections
 mysql_port: 3306  #defines the port for mysql to listen on
