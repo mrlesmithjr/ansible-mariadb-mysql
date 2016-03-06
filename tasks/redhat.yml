@@ -6,8 +6,6 @@
     owner: root
     group: root
   register: repo_added
-  when: >
-        ansible_distribution != "Fedora"
 
 - name: redhat | installing mariadb mysql
   yum:
@@ -25,8 +23,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - mariadb-server
-    - mariadb
+    - MariaDB-server
     - MySQL-python
   when: >
         ansible_distribution == "Fedora"
