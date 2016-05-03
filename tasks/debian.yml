@@ -12,11 +12,13 @@
     keyserver: "{{ mariadb_debian_repo_keyserver }}"
     id: "{{ mariadb_debian_repo_key }}"
     state: present
+  when: enable_mariadb_repo
 
 - name: debian | adding mariadb repo
   apt_repository:
     repo: "{{ mariadb_debian_repo }}"
     state: present
+  when: enable_mariadb_repo
 
 - include: mysql_root_pw.yml
 
