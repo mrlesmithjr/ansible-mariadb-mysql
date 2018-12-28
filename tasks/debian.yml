@@ -1,7 +1,8 @@
 ---
 - name: debian | installing pre-reqs
   apt:
-    name: ["python-mysqldb", "software-properties-common"]
+    name:
+      ["apt-transport-https", "python-mysqldb", "software-properties-common"]
     state: present
   become: true
   register: result
@@ -17,7 +18,8 @@
   until: result is successful
   when: >
     mariadb_mysql_enable_mariadb_repo and
-    ansible_distribution_release|lower == "trusty"
+    (ansible_distribution_release|lower == "trusty" or
+    ansible_distribution_release|lower == "jessie")
 
 - name: debian | adding mariadb repo keys
   apt_key:
@@ -29,7 +31,8 @@
   until: result is successful
   when: >
     mariadb_mysql_enable_mariadb_repo and
-    ansible_distribution_release|lower != "trusty"
+    ansible_distribution_release|lower != "trusty" and
+    ansible_distribution_release|lower != "jessie"
 
 - name: debian | adding mariadb repo
   apt_repository:
