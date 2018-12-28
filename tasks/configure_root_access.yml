@@ -4,8 +4,6 @@
     name: root
     host: "{{ item }}"
     password: "{{ mariadb_mysql_root_password }}"
-    login_user: "{{ mariadb_mysql_user }}"
-    login_password: "{{ mariadb_mysql_root_password }}"
   become: true
   with_items:
     - "{{ ansible_hostname }}"
