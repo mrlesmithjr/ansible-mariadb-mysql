@@ -21,7 +21,7 @@
 
 - name: redhat | installing mariadb mysql
   dnf:
-    name: ["MariaDB-server", "MySQL-python"]
+    name: ["mariadb-server", "MySQL-python"]
     state: present
   become: true
   register: result

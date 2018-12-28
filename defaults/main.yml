@@ -16,7 +16,7 @@ mariadb_mysql_debian_repo_key: "0xF1656F24C74CD1D8"
 mariadb_mysql_debian_repo_keyserver: keyserver.ubuntu.com
 mariadb_mysql_redhat_repo: "{{ 'http://yum.mariadb.org/' + mariadb_mysql_version + '/' + ansible_distribution|lower + ansible_distribution_major_version + '-amd64' }}"
 mariadb_mysql_redhat_repo_key: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-mariadb_mysql_version: "10.1"
+mariadb_mysql_version: "10.2"
 
 # Defines the port for mysql to listen on
 mariadb_mysql_port: 3306
