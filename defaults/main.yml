@@ -12,7 +12,7 @@ mariadb_mysql_enable_mariadb_repo: true
 
 # MariaDB Repo Info
 mariadb_mysql_debian_repo: "{{ 'deb [arch=amd64] ' + mariadb_mysql_debian_repo_url + '/' + mariadb_mysql_version + '/' + ansible_distribution|lower + ' ' + ansible_distribution_release|lower + ' main' }}"
-mariadb_mysql_debian_repo_url: https://mirrors.evowise.com/mariadb/repo
+mariadb_mysql_debian_repo_url: https://mirror.rackspace.com/mariadb/repo
 mariadb_mysql_redhat_repo: "{{ 'http://yum.mariadb.org/' + mariadb_mysql_version + '/' + ansible_distribution|lower + ansible_distribution_major_version + '-amd64' }}"
 mariadb_mysql_redhat_repo_key: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 mariadb_mysql_version: "10.2"
